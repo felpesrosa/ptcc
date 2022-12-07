@@ -8,8 +8,7 @@ public class CSVBuilder {
 
     public CSVBuilder(Long pid) throws IOException {
         
-        // String logFileName = "/home/felipe/Documentos/ptcc/multithreaded-server/src/log/log-PID_" + pid
-        String logFileName = "C:\\felipe\\ptcc\\multithreaded-server\\src\\log\\log-PID_" + pid
+        String logFileName = "/home/felipe/Documentos/ptcc/multithreaded-server/src/log/log-PID_" + pid
                 + ".csv";
 
         File logFile = new File(logFileName);

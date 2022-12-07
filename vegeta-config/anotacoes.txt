@@ -1,0 +1,13 @@
+para rodar a jvm:
+	linux: 
+		cd /home/felipe/Documentos/ptcc/multithreaded-server ; /usr/bin/env /usr/lib/jvm/jdk-19/bin/java  --enable-preview -XX:+ShowCodeDetailsInExceptionMessages -cp /home/felipe/Documentos/ptcc/multithreaded-server/bin ThreadedServer
+
+	windows:
+		& 'C:\Program Files\Java\jdk-19\bin\java.exe' '--enable-preview' '-XX:+ShowCodeDetailsInExceptionMessages' '-cp' 'C:\felipe\ptcc\multithreaded-server\bin' 'ThreadedServer'
+
+para executar o vegeta:
+	vegeta attack -duration=5s -rate=1000 -targets=Target_with_Virtual_Threads_Delay.txt | vegeta report
+
+
+
+
