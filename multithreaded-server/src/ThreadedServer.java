@@ -19,7 +19,7 @@ public class ThreadedServer {
         csvBuilder = new CSVBuilder(ProcessHandle.current().pid());
 
         platformThreadsServer = HttpServer.create(new InetSocketAddress(8000), 0);
-        platformThreadsServer.createContext("/withPlatformThreads", new PlatformThreadHandler());
+        platformThreadsServer.createContext("/withPlatformThreads", new PlatformThreadsHandler());
         platformThreadsServer.setExecutor(java.util.concurrent.Executors.newThreadPerTaskExecutor(new SimpleThreadFactory()));
         platformThreadsServer.start();
 
@@ -29,12 +29,12 @@ public class ThreadedServer {
         singleThreadServer.start();
 
         cachedThreadsServer = HttpServer.create(new InetSocketAddress(8002), 0);
-        cachedThreadsServer.createContext("/withCachedThreads", new CachedThreadHandler());
+        cachedThreadsServer.createContext("/withCachedThreads", new CachedThreadsHandler());
         cachedThreadsServer.setExecutor(java.util.concurrent.Executors.newCachedThreadPool());
         cachedThreadsServer.start();
 
         virtualThreadsServer = HttpServer.create(new InetSocketAddress(8003), 0);
-        virtualThreadsServer.createContext("/withVirtualThreads", new VirtualThreadHandler());
+        virtualThreadsServer.createContext("/withVirtualThreads", new VirtualThreadsHandler());
         virtualThreadsServer.setExecutor(java.util.concurrent.Executors.newVirtualThreadPerTaskExecutor());
         virtualThreadsServer.start();
 
@@ -51,6 +51,8 @@ public class ThreadedServer {
             os.write(response.getBytes());
             os.close();
 
+            csvBuilder.close();
+
             cachedThreadsServer.stop(0);
             platformThreadsServer.stop(0);
             singleThreadServer.stop(0);
@@ -58,26 +60,29 @@ public class ThreadedServer {
         }
     }
 
-    static class PlatformThreadHandler implements HttpHandler {
+    static class PlatformThreadsHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange t) throws IOException {
-            System.out.println(t.getRequestURI());
+            boolean withDelay = false;
             String[] requestURI = t.getRequestURI().toString().split("/");
 
-            /* exemplo de URI: /withPlatformThreads/1&Felipe%20Rosa&1111009302&7,8,9,9 */
-            String[] infos = requestURI[2].split("&");
+            /* Setar as informações do número a ser verificado com dados da URI */
+            PrimeNumber numberToCheck = new PrimeNumber(Integer.parseInt(requestURI[2]));
 
-            Student student = new Student( /* Setar as informações do Estudante com dados da URI */
-                    Long.parseLong(infos[0]),
-                    infos[1].replace("%20", " "),
-                    Long.valueOf(infos[2]),
-                    infos[3].split(","));
-
-            String response = "The student " + student.name + " is ";
-            String result = student.isStudentApproved() ? "approved." : "disapproved.";
+            String response = "The number " + numberToCheck.numberToCheck + " is ";
+            String result = numberToCheck.isPrime ? "a prime number." : "not a prime number.";
             response = response + result;
 
-            csvBuilder.writeCSV(student.toString());
+            if (requestURI.length > 3 && requestURI[3].equalsIgnoreCase("withDelay")) {
+                withDelay = true;
+                try { Thread.sleep(1000); } 
+                catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            String csvLine = t.getRequestURI().toString() + ", " + withDelay + ", " + numberToCheck.toString();
+            csvBuilder.writeCSV(csvLine);
 
             t.sendResponseHeaders(200, response.length());
             OutputStream os = t.getResponseBody();
@@ -92,20 +97,19 @@ public class ThreadedServer {
             System.out.println(t.getRequestURI());
             String[] requestURI = t.getRequestURI().toString().split("/");
 
-            /* exemplo de URI: /withPlatformThreads/1&Felipe%20Rosa&1111009302&7,8,9,9 */
-            String[] infos = requestURI[2].split("&");
+            for (String string : requestURI) {
+                System.out.println(string);
+            }
 
-            Student student = new Student( /* Setar as informações do Estudante com dados da URI */
-                    Long.parseLong(infos[0]),
-                    infos[1].replace("%20", " "),
-                    Long.valueOf(infos[2]),
-                    infos[3].split(","));
+            /* exemplo de URI: /withSingleThread/1234 */
+            /* Setar as informações do numero a ser verificado com dados da URI */
+            PrimeNumber numberToCheck = new PrimeNumber(Integer.parseInt(requestURI[1]));
 
-            String response = "The student " + student.name + " is ";
-            String result = student.isStudentApproved() ? "approved." : "disapproved.";
+            String response = "The number " + numberToCheck.numberToCheck + " is ";
+            String result = numberToCheck.isPrime ? "prime number." : "not a prime number.";
             response = response + result;
 
-            csvBuilder.writeCSV(student.toString());
+            csvBuilder.writeCSV(numberToCheck.toString());
 
             t.sendResponseHeaders(200, response.length());
             OutputStream os = t.getResponseBody();
@@ -114,26 +118,25 @@ public class ThreadedServer {
         }
     }
 
-    static class CachedThreadHandler implements HttpHandler {
+    static class CachedThreadsHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange t) throws IOException {
             System.out.println(t.getRequestURI());
             String[] requestURI = t.getRequestURI().toString().split("/");
 
-            /* exemplo de URI: /withPlatformThreads/1&Felipe%20Rosa&1111009302&7,8,9,9 */
-            String[] infos = requestURI[2].split("&");
+            for (String string : requestURI) {
+                System.out.println(string);
+            }
 
-            Student student = new Student( /* Setar as informações do Estudante com dados da URI */
-                    Long.parseLong(infos[0]),
-                    infos[1].replace("%20", " "),
-                    Long.valueOf(infos[2]),
-                    infos[3].split(","));
+            /* exemplo de URI: /withCachedThreads/1234 */
+            /* Setar as informações do numero a ser verificado com dados da URI */
+            PrimeNumber numberToCheck = new PrimeNumber(Integer.parseInt(requestURI[1]));
 
-            String response = "The student " + student.name + " is ";
-            String result = student.isStudentApproved() ? "approved." : "disapproved.";
+            String response = "The number " + numberToCheck.numberToCheck + " is ";
+            String result = numberToCheck.isPrime ? "prime number." : "not a prime number.";
             response = response + result;
 
-            csvBuilder.writeCSV(student.toString());
+            csvBuilder.writeCSV(numberToCheck.toString());
 
             t.sendResponseHeaders(200, response.length());
             OutputStream os = t.getResponseBody();
@@ -142,26 +145,21 @@ public class ThreadedServer {
         }
     }
 
-    static class VirtualThreadHandler implements HttpHandler {
+    static class VirtualThreadsHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange t) throws IOException {
             System.out.println(t.getRequestURI());
             String[] requestURI = t.getRequestURI().toString().split("/");
 
-            /* exemplo de URI: /withPlatformThreads/1&Felipe%20Rosa&1111009302&7,8,9,9 */
-            String[] infos = requestURI[2].split("&");
+            /* exemplo de URI: /withVirtualThreads/1234 */
+            /* Setar as informações do numero a ser verificado com dados da URI */
+            PrimeNumber numberToCheck = new PrimeNumber(Integer.parseInt(requestURI[1]));
 
-            Student student = new Student( /* Setar as informações do Estudante com dados da URI */
-                    Long.parseLong(infos[0]),
-                    infos[1].replace("%20", " "),
-                    Long.valueOf(infos[2]),
-                    infos[3].split(","));
-
-            String response = "The student " + student.name + " is ";
-            String result = student.isStudentApproved() ? "approved." : "disapproved.";
+            String response = "The number " + numberToCheck.numberToCheck + " is ";
+            String result = numberToCheck.isPrime ? "prime number." : "not a prime number.";
             response = response + result;
 
-            csvBuilder.writeCSV(student.toString());
+            csvBuilder.writeCSV(numberToCheck.toString());
 
             t.sendResponseHeaders(200, response.length());
             OutputStream os = t.getResponseBody();

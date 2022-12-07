@@ -1,0 +1,6 @@
+Request URI, Com interrupção?, Número a verificar, Primo?, Sequência testada
+/withPlatformThreads/13, false, 13, true, { 2 3 4 5 }
+/withPlatformThreads/48/withDelay, true, 48, false, { 2 }
+/withPlatformThreads/7/withDelay, true, 7, true, { 2 }
+/withPlatformThreads/29, false, 29, true, { 2 3 4 5 6 7 8 9 10 11 12 13 }
+/withPlatformThreads/35/withDelay, true, 35, false, { 2 3 4 5 }

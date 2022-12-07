@@ -15,7 +15,7 @@ public class CSVBuilder {
         FileWriter fileWriter = new FileWriter(logFile);
         logPrinter = new PrintWriter(fileWriter);
 
-        logPrinter.println("Número da Req, Matrícula, Nome, Aprovado, Notas"); // colunas do .CSV
+        logPrinter.println("Request URI, Com interrupção?, Número a verificar, Primo?, Sequência testada"); // colunas do .CSV
     }
 
     static public void writeCSV(String logMessage) {
