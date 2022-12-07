@@ -1,0 +1,16 @@
+felipe@lenovo-ideapad:~/Documentos/ptcc/vegeta-config$ ./_test-runner.sh 
+inicio teste 1> ter 06 dez 2022 23:32:18 -03
+fim teste 1> ter 06 dez 2022 23:32:23 -03
+inicio teste 2> ter 06 dez 2022 23:34:23 -03
+fim teste 2> ter 06 dez 2022 23:34:28 -03
+inicio teste 3> ter 06 dez 2022 23:36:28 -03
+fim teste 3> ter 06 dez 2022 23:36:33 -03
+inicio teste 4> ter 06 dez 2022 23:38:33 -03
+fim teste 4> ter 06 dez 2022 23:38:38 -03
+inicio teste 5> ter 06 dez 2022 23:40:38 -03
+fim teste 5> ter 06 dez 2022 23:40:44 -03
+inicio teste 6> ter 06 dez 2022 23:42:44 -03
+fim teste 6> ter 06 dez 2022 23:42:49 -03
+>>>>>>>>>> fim <<<<<<<<<<
+
+
