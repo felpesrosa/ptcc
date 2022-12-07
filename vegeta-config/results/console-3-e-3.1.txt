@@ -1,0 +1,31 @@
+felipe@lenovo-ideapad:~/Documentos/ptcc/vegeta-config$ ./_test-runner-v3.sh
+inicio teste 1> qua 07 dez 2022 18:37:22 -03
+fim teste 1> qua 07 dez 2022 18:37:27 -03
+inicio teste 2> qua 07 dez 2022 18:39:27 -03
+fim teste 2> qua 07 dez 2022 18:39:33 -03
+inicio teste 3> qua 07 dez 2022 18:41:33 -03
+fim teste 3> qua 07 dez 2022 18:41:38 -03
+inicio teste 4> qua 07 dez 2022 18:43:38 -03
+fim teste 4> qua 07 dez 2022 18:43:43 -03
+inicio teste 5> qua 07 dez 2022 18:45:43 -03
+fim teste 5> qua 07 dez 2022 18:45:48 -03
+inicio teste 6> qua 07 dez 2022 18:47:48 -03
+fim teste 6> qua 07 dez 2022 18:47:54 -03
+>>>>>>>>>> fim <<<<<<<<<<
+felipe@lenovo-ideapad:~/Documentos/ptcc/vegeta-config$ ./_test-runner-v3.sh
+inicio teste 1> qua 07 dez 2022 18:57:13 -03
+fim teste 1> qua 07 dez 2022 18:57:18 -03
+inicio teste 2> qua 07 dez 2022 18:59:18 -03
+fim teste 2> qua 07 dez 2022 18:59:23 -03
+inicio teste 3> qua 07 dez 2022 19:01:23 -03
+fim teste 3> qua 07 dez 2022 19:01:28 -03
+inicio teste 4> qua 07 dez 2022 19:03:28 -03
+fim teste 4> qua 07 dez 2022 19:03:33 -03
+inicio teste 5> qua 07 dez 2022 19:06:33 -03
+fim teste 5> qua 07 dez 2022 19:06:39 -03
+inicio teste 6> qua 07 dez 2022 19:09:39 -03
+fim teste 6> qua 07 dez 2022 19:09:45 -03
+>>>>>>>>>> fim <<<<<<<<<<
+felipe@lenovo-ideapad:~/Documentos/ptcc/vegeta-config$ 
+
+

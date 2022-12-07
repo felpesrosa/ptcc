@@ -45,7 +45,6 @@ public class ThreadedServer {
         @Override
         public void handle(HttpExchange t) throws IOException {
             String response = "Closing the server!";
-            System.out.println("------------- closing the server -------------");
             t.sendResponseHeaders(200, response.length());
             OutputStream os = t.getResponseBody();
             os.write(response.getBytes());
@@ -57,6 +56,7 @@ public class ThreadedServer {
             platformThreadsServer.stop(0);
             singleThreadServer.stop(0);
             virtualThreadsServer.stop(0);
+            System.out.println("------------- closing the server -------------");
         }
     }
 

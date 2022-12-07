@@ -1,0 +1,33 @@
+Requests      [total, rate, throughput]         4000, 800.19, 689.40
+Duration      [total, attack, wait]             5.766s, 4.999s, 767.072ms
+Latencies     [min, mean, 50, 90, 95, 99, max]  93.729µs, 558.972ms, 503.812ms, 617.621ms, 728.708ms, 1.443s, 1.636s
+Bytes In      [total, mean]                     148744, 37.19
+Bytes Out     [total, mean]                     0, 0.00
+Success       [ratio]                           99.38%
+Status Codes  [code:count]                      0:25  200:3975  
+Error Set:
+Get "http://localhost:8002/withCachedThreads/8987/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/5378/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/5213/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/9466/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/9690/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/9017/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/2957/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/8246/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/1353/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/6632/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/5031/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/965/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/9023/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/6959/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/5099/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/1740/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/820/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/9755/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/5640/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/5211/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/2094/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/4459/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/2937/withDelay": EOF
+Get "http://localhost:8002/withCachedThreads/5624/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
+Get "http://localhost:8002/withCachedThreads/9977/withDelay": dial tcp 0.0.0.0:0->127.0.0.1:8002: socket: too many open files
